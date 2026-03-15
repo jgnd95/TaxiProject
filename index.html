@@ -1,0 +1,1965 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gondal-Tax | Uw Betrouwbare Taxiservice</title>
+    <meta name="description" content="Gondal-Tax - Uw betrouwbare taxiservice. 24/7 beschikbaar, vaste tarieven, professionele chauffeurs. Boek nu uw rit!">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        /* ===== CSS CUSTOM PROPERTIES ===== */
+        :root {
+            --black: #0a0a0a;
+            --black-light: #141414;
+            --black-card: #1a1a1a;
+            --yellow: #F5C400;
+            --yellow-hover: #ffd633;
+            --yellow-dark: #d4aa00;
+            --white: #FFFFFF;
+            --gray: #b0b0b0;
+            --gray-light: #f5f5f5;
+            --gray-dark: #2a2a2a;
+            --font-display: 'Barlow Condensed', sans-serif;
+            --font-body: 'DM Sans', sans-serif;
+            --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --shadow: 0 10px 40px rgba(0,0,0,0.15);
+            --shadow-lg: 0 20px 60px rgba(0,0,0,0.25);
+        }
+
+        /* ===== RESET & BASE ===== */
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 80px;
+        }
+
+        body {
+            font-family: var(--font-body);
+            color: var(--black);
+            background: var(--white);
+            line-height: 1.6;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-display);
+            font-weight: 800;
+            line-height: 1.1;
+            text-transform: uppercase;
+            letter-spacing: 0.02em;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition);
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        ul { list-style: none; }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* ===== UTILITY ===== */
+        .section-label {
+            font-family: var(--font-display);
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: var(--yellow);
+            margin-bottom: 12px;
+            display: inline-block;
+        }
+
+        .section-title {
+            font-size: clamp(2rem, 5vw, 3.2rem);
+            margin-bottom: 20px;
+        }
+
+        .section-subtitle {
+            font-family: var(--font-body);
+            font-size: 1.1rem;
+            color: var(--gray);
+            max-width: 600px;
+            font-weight: 400;
+            text-transform: none;
+            letter-spacing: 0;
+            line-height: 1.6;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 16px 36px;
+            font-family: var(--font-display);
+            font-size: 1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            border: 2px solid transparent;
+            cursor: pointer;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary {
+            background: var(--yellow);
+            color: var(--black);
+            border-color: var(--yellow);
+        }
+
+        .btn-primary:hover {
+            background: var(--yellow-hover);
+            border-color: var(--yellow-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(245, 196, 0, 0.35);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--white);
+            border-color: var(--white);
+        }
+
+        .btn-outline:hover {
+            background: var(--white);
+            color: var(--black);
+            transform: translateY(-2px);
+        }
+
+        .btn-outline-dark {
+            background: transparent;
+            color: var(--black);
+            border-color: var(--black);
+        }
+
+        .btn-outline-dark:hover {
+            background: var(--black);
+            color: var(--yellow);
+            transform: translateY(-2px);
+        }
+
+        .yellow-line {
+            width: 60px;
+            height: 4px;
+            background: var(--yellow);
+            display: block;
+        }
+
+        .section-divider {
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--yellow), transparent);
+            opacity: 0.3;
+        }
+
+        /* Fade-in animation */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .fade-in-left {
+            opacity: 0;
+            transform: translateX(-40px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+
+        .fade-in-left.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .fade-in-right {
+            opacity: 0;
+            transform: translateX(40px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+
+        .fade-in-right.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        /* ===== 1. NAVBAR ===== */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 20px 0;
+            transition: var(--transition);
+        }
+
+        .navbar.scrolled {
+            background: rgba(10, 10, 10, 0.97);
+            padding: 12px 0;
+            backdrop-filter: blur(20px);
+            box-shadow: 0 2px 30px rgba(0,0,0,0.3);
+        }
+
+        .navbar .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-family: var(--font-display);
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: var(--white);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .logo span {
+            color: var(--yellow);
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 36px;
+        }
+
+        .nav-links a {
+            font-family: var(--font-display);
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--white);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--yellow);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-links a:hover {
+            color: var(--yellow);
+        }
+
+        .nav-cta {
+            padding: 10px 24px !important;
+            font-size: 0.85rem !important;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            padding: 8px;
+            z-index: 1001;
+        }
+
+        .hamburger span {
+            width: 28px;
+            height: 2px;
+            background: var(--white);
+            transition: var(--transition);
+            display: block;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(5px, -5px);
+        }
+
+        /* ===== 2. HERO SECTION ===== */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+            background: var(--black);
+        }
+
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(ellipse at 20% 80%, rgba(245, 196, 0, 0.08) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 20%, rgba(245, 196, 0, 0.05) 0%, transparent 50%),
+                linear-gradient(180deg, rgba(10,10,10,0.95) 0%, rgba(10,10,10,0.85) 50%, rgba(10,10,10,0.95) 100%);
+            z-index: 1;
+        }
+
+        .hero-pattern {
+            position: absolute;
+            inset: 0;
+            opacity: 0.04;
+            background-image:
+                linear-gradient(30deg, var(--yellow) 12%, transparent 12.5%, transparent 87%, var(--yellow) 87.5%, var(--yellow)),
+                linear-gradient(150deg, var(--yellow) 12%, transparent 12.5%, transparent 87%, var(--yellow) 87.5%, var(--yellow)),
+                linear-gradient(30deg, var(--yellow) 12%, transparent 12.5%, transparent 87%, var(--yellow) 87.5%, var(--yellow)),
+                linear-gradient(150deg, var(--yellow) 12%, transparent 12.5%, transparent 87%, var(--yellow) 87.5%, var(--yellow)),
+                linear-gradient(60deg, rgba(245,196,0,0.5) 25%, transparent 25.5%, transparent 75%, rgba(245,196,0,0.5) 75%, rgba(245,196,0,0.5)),
+                linear-gradient(60deg, rgba(245,196,0,0.5) 25%, transparent 25.5%, transparent 75%, rgba(245,196,0,0.5) 75%, rgba(245,196,0,0.5));
+            background-size: 80px 140px;
+            background-position: 0 0, 0 0, 40px 70px, 40px 70px, 0 0, 40px 70px;
+        }
+
+        .hero-glow {
+            position: absolute;
+            bottom: -20%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 800px;
+            height: 400px;
+            background: radial-gradient(ellipse, rgba(245,196,0,0.1) 0%, transparent 70%);
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+        }
+
+        .hero-label {
+            font-family: var(--font-display);
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.3em;
+            color: var(--yellow);
+            margin-bottom: 24px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .hero-label::before {
+            content: '';
+            width: 40px;
+            height: 2px;
+            background: var(--yellow);
+        }
+
+        .hero h1 {
+            font-size: clamp(2.8rem, 7vw, 5.5rem);
+            color: var(--white);
+            margin-bottom: 24px;
+            line-height: 1;
+        }
+
+        .hero h1 em {
+            font-style: normal;
+            color: var(--yellow);
+        }
+
+        .hero-sub {
+            font-size: 1.15rem;
+            color: var(--gray);
+            margin-bottom: 40px;
+            max-width: 550px;
+            line-height: 1.7;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .hero-stats {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            gap: 48px;
+            margin-top: 80px;
+            padding-top: 40px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .hero-stat h3 {
+            font-size: 2.2rem;
+            color: var(--yellow);
+            text-transform: none;
+        }
+
+        .hero-stat p {
+            font-size: 0.85rem;
+            color: var(--gray);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-weight: 500;
+        }
+
+        /* ===== 3. USP BAR ===== */
+        .usp-bar {
+            background: var(--yellow);
+            padding: 0;
+        }
+
+        .usp-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+        }
+
+        .usp-item {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 28px 24px;
+            border-right: 1px solid rgba(10,10,10,0.1);
+            transition: var(--transition);
+        }
+
+        .usp-item:last-child {
+            border-right: none;
+        }
+
+        .usp-item:hover {
+            background: rgba(10,10,10,0.05);
+        }
+
+        .usp-item i {
+            font-size: 1.4rem;
+            color: var(--black);
+            width: 40px;
+            text-align: center;
+            flex-shrink: 0;
+        }
+
+        .usp-item span {
+            font-family: var(--font-display);
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: var(--black);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        /* ===== 4. BOOKING FORM ===== */
+        .booking {
+            padding: 100px 0;
+            background: var(--gray-light);
+            position: relative;
+        }
+
+        .booking-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .booking-card {
+            background: var(--black);
+            padding: 50px;
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .booking-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--yellow);
+        }
+
+        .booking-card::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(245,196,0,0.06) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .booking-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .form-group.full-width {
+            grid-column: 1 / -1;
+        }
+
+        .form-group label {
+            font-family: var(--font-display);
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--yellow);
+        }
+
+        .form-group input,
+        .form-group select {
+            padding: 16px 20px;
+            background: var(--black-light);
+            border: 1px solid var(--gray-dark);
+            color: var(--white);
+            font-family: var(--font-body);
+            font-size: 1rem;
+            transition: var(--transition);
+            outline: none;
+            -webkit-appearance: none;
+        }
+
+        .form-group input::placeholder {
+            color: #666;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus {
+            border-color: var(--yellow);
+            box-shadow: 0 0 0 3px rgba(245,196,0,0.1);
+        }
+
+        .form-group select {
+            cursor: pointer;
+        }
+
+        .form-group select option {
+            background: var(--black);
+            color: var(--white);
+        }
+
+        .booking-submit {
+            width: 100%;
+            padding: 20px;
+            font-size: 1.1rem;
+            justify-content: center;
+            border: none;
+        }
+
+        .booking-submit i {
+            font-size: 1.2rem;
+        }
+
+        /* ===== 5. DIENSTEN ===== */
+        .diensten {
+            padding: 100px 0;
+            background: var(--white);
+        }
+
+        .diensten-header {
+            margin-bottom: 60px;
+        }
+
+        .diensten-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+        }
+
+        .dienst-card {
+            background: var(--white);
+            border: 1px solid #eee;
+            padding: 40px 30px;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .dienst-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--yellow);
+            transform: scaleX(0);
+            transition: var(--transition);
+        }
+
+        .dienst-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+            border-color: transparent;
+        }
+
+        .dienst-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .dienst-icon {
+            width: 64px;
+            height: 64px;
+            background: var(--black);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 24px;
+            transition: var(--transition);
+        }
+
+        .dienst-card:hover .dienst-icon {
+            background: var(--yellow);
+        }
+
+        .dienst-icon i {
+            font-size: 1.5rem;
+            color: var(--yellow);
+            transition: var(--transition);
+        }
+
+        .dienst-card:hover .dienst-icon i {
+            color: var(--black);
+        }
+
+        .dienst-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 12px;
+            color: var(--black);
+        }
+
+        .dienst-card p {
+            font-size: 0.95rem;
+            color: #666;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .dienst-link {
+            font-family: var(--font-display);
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--yellow-dark);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .dienst-link:hover {
+            color: var(--black);
+        }
+
+        .dienst-link i {
+            font-size: 0.75rem;
+            transition: var(--transition);
+        }
+
+        .dienst-link:hover i {
+            transform: translateX(4px);
+        }
+
+        /* ===== 6. OVER ONS ===== */
+        .over-ons {
+            padding: 100px 0;
+            background: var(--black);
+            color: var(--white);
+            overflow: hidden;
+        }
+
+        .over-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .over-content .section-title {
+            color: var(--white);
+        }
+
+        .over-text {
+            font-size: 1.05rem;
+            color: var(--gray);
+            margin-bottom: 40px;
+            line-height: 1.8;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 24px 12px;
+            border: 1px solid var(--gray-dark);
+            transition: var(--transition);
+        }
+
+        .stat-item:hover {
+            border-color: var(--yellow);
+        }
+
+        .stat-item h3 {
+            font-size: 2.4rem;
+            color: var(--yellow);
+            margin-bottom: 4px;
+        }
+
+        .stat-item p {
+            font-size: 0.8rem;
+            color: var(--gray);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-weight: 500;
+        }
+
+        .over-visual {
+            position: relative;
+        }
+
+        .over-accent-block {
+            background: var(--yellow);
+            padding: 60px 50px;
+            position: relative;
+        }
+
+        .over-accent-block::before {
+            content: '';
+            position: absolute;
+            top: -20px;
+            left: -20px;
+            right: 20px;
+            bottom: 20px;
+            border: 2px solid var(--yellow);
+            opacity: 0.3;
+            z-index: 0;
+        }
+
+        .over-quote {
+            position: relative;
+            z-index: 1;
+        }
+
+        .over-quote .quote-icon {
+            font-size: 3rem;
+            color: var(--black);
+            opacity: 0.2;
+            margin-bottom: 20px;
+            font-family: Georgia, serif;
+            line-height: 1;
+        }
+
+        .over-quote blockquote {
+            font-family: var(--font-display);
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--black);
+            text-transform: uppercase;
+            line-height: 1.3;
+            margin-bottom: 20px;
+        }
+
+        .over-quote cite {
+            font-family: var(--font-body);
+            font-style: normal;
+            font-size: 0.9rem;
+            color: rgba(10,10,10,0.6);
+            font-weight: 600;
+        }
+
+        /* ===== 7. HOE HET WERKT ===== */
+        .hoe-werkt {
+            padding: 100px 0;
+            background: var(--white);
+        }
+
+        .hoe-werkt-header {
+            text-align: center;
+            margin-bottom: 70px;
+        }
+
+        .hoe-werkt-header .section-subtitle {
+            margin: 0 auto;
+        }
+
+        .stappen-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            position: relative;
+        }
+
+        .stappen-grid::before {
+            content: '';
+            position: absolute;
+            top: 50px;
+            left: calc(16.67% + 20px);
+            right: calc(16.67% + 20px);
+            height: 3px;
+            background: var(--yellow);
+            z-index: 0;
+        }
+
+        .stap {
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .stap-number {
+            width: 100px;
+            height: 100px;
+            background: var(--black);
+            margin: 0 auto 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            transition: var(--transition);
+        }
+
+        .stap:hover .stap-number {
+            background: var(--yellow);
+        }
+
+        .stap-number span {
+            font-family: var(--font-display);
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: var(--yellow);
+            transition: var(--transition);
+        }
+
+        .stap:hover .stap-number span {
+            color: var(--black);
+        }
+
+        .stap-icon {
+            position: absolute;
+            bottom: -8px;
+            right: -8px;
+            width: 36px;
+            height: 36px;
+            background: var(--yellow);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .stap-icon i {
+            font-size: 0.85rem;
+            color: var(--black);
+        }
+
+        .stap h3 {
+            font-size: 1.3rem;
+            margin-bottom: 12px;
+            color: var(--black);
+        }
+
+        .stap p {
+            font-size: 0.95rem;
+            color: #666;
+            max-width: 280px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        /* ===== 8. REVIEWS ===== */
+        .reviews {
+            padding: 100px 0;
+            background: var(--black-light);
+            color: var(--white);
+        }
+
+        .reviews-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .reviews-header .section-title {
+            color: var(--white);
+        }
+
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .review-card {
+            background: var(--black-card);
+            padding: 40px;
+            border: 1px solid rgba(255,255,255,0.05);
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .review-card::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--yellow);
+            transform: scaleX(0);
+            transition: var(--transition);
+        }
+
+        .review-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(245,196,0,0.2);
+        }
+
+        .review-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .review-stars {
+            display: flex;
+            gap: 4px;
+            margin-bottom: 20px;
+        }
+
+        .review-stars i {
+            color: var(--yellow);
+            font-size: 0.9rem;
+        }
+
+        .review-text {
+            font-size: 1rem;
+            color: var(--gray);
+            line-height: 1.7;
+            margin-bottom: 24px;
+            font-style: italic;
+        }
+
+        .review-author {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .review-avatar {
+            width: 48px;
+            height: 48px;
+            background: var(--yellow);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-display);
+            font-size: 1.2rem;
+            font-weight: 800;
+            color: var(--black);
+            flex-shrink: 0;
+        }
+
+        .review-name {
+            font-family: var(--font-display);
+            font-size: 1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .review-route {
+            font-size: 0.8rem;
+            color: #666;
+        }
+
+        /* ===== 9. SERVICE GEBIED ===== */
+        .service-gebied {
+            padding: 100px 0;
+            background: var(--white);
+        }
+
+        .service-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .service-header .section-subtitle {
+            margin: 0 auto;
+        }
+
+        .steden-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 14px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .stad-tag {
+            padding: 14px 28px;
+            background: var(--white);
+            border: 1px solid #ddd;
+            font-family: var(--font-display);
+            font-size: 0.95rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--black);
+            transition: var(--transition);
+            cursor: default;
+        }
+
+        .stad-tag:hover {
+            background: var(--black);
+            color: var(--yellow);
+            border-color: var(--black);
+            transform: translateY(-2px);
+        }
+
+        .stad-tag.highlight {
+            background: var(--yellow);
+            border-color: var(--yellow);
+            color: var(--black);
+        }
+
+        .stad-tag.highlight:hover {
+            background: var(--black);
+            color: var(--yellow);
+            border-color: var(--black);
+        }
+
+        /* ===== 10. CTA BANNER ===== */
+        .cta-banner {
+            padding: 80px 0;
+            background: var(--yellow);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-banner::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background:
+                repeating-linear-gradient(
+                    -45deg,
+                    transparent,
+                    transparent 40px,
+                    rgba(10,10,10,0.03) 40px,
+                    rgba(10,10,10,0.03) 80px
+                );
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+        }
+
+        .cta-banner h2 {
+            font-size: clamp(2.2rem, 5vw, 3.5rem);
+            color: var(--black);
+            margin-bottom: 16px;
+        }
+
+        .cta-banner p {
+            font-size: 1.1rem;
+            color: rgba(10,10,10,0.7);
+            margin-bottom: 36px;
+            max-width: 550px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* ===== 11. FOOTER ===== */
+        .footer {
+            background: var(--black);
+            color: var(--white);
+            padding: 80px 0 0;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1.5fr;
+            gap: 60px;
+            padding-bottom: 60px;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+
+        .footer-brand .logo {
+            margin-bottom: 16px;
+            display: inline-block;
+        }
+
+        .footer-brand p {
+            font-size: 0.95rem;
+            color: var(--gray);
+            line-height: 1.7;
+            margin-bottom: 24px;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 12px;
+        }
+
+        .footer-social a {
+            width: 44px;
+            height: 44px;
+            background: var(--gray-dark);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+
+        .footer-social a:hover {
+            background: var(--yellow);
+        }
+
+        .footer-social a i {
+            color: var(--white);
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        .footer-social a:hover i {
+            color: var(--black);
+        }
+
+        .footer h4 {
+            font-size: 1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--yellow);
+            margin-bottom: 24px;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            font-size: 0.95rem;
+            color: var(--gray);
+        }
+
+        .footer-links a:hover {
+            color: var(--yellow);
+        }
+
+        .footer-contact li {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 16px;
+            font-size: 0.95rem;
+            color: var(--gray);
+        }
+
+        .footer-contact li i {
+            color: var(--yellow);
+            margin-top: 4px;
+            width: 16px;
+            text-align: center;
+            flex-shrink: 0;
+        }
+
+        .footer-contact a {
+            color: var(--gray);
+        }
+
+        .footer-contact a:hover {
+            color: var(--yellow);
+        }
+
+        .footer-bottom {
+            padding: 24px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.85rem;
+            color: #666;
+        }
+
+        .footer-bottom a {
+            color: #666;
+        }
+
+        .footer-bottom a:hover {
+            color: var(--yellow);
+        }
+
+        /* ===== MOBILE MENU OVERLAY ===== */
+        .mobile-menu {
+            position: fixed;
+            inset: 0;
+            background: rgba(10,10,10,0.98);
+            z-index: 999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+        }
+
+        .mobile-menu.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .mobile-menu nav {
+            text-align: center;
+        }
+
+        .mobile-menu a {
+            display: block;
+            font-family: var(--font-display);
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--white);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            padding: 16px 0;
+            transition: var(--transition);
+        }
+
+        .mobile-menu a:hover {
+            color: var(--yellow);
+        }
+
+        .mobile-menu .btn {
+            margin-top: 20px;
+            font-size: 1.2rem;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 1024px) {
+            .diensten-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 40px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .hero-stats {
+                flex-direction: column;
+                gap: 20px;
+                margin-top: 50px;
+            }
+
+            .hero-stat {
+                display: flex;
+                align-items: center;
+                gap: 16px;
+            }
+
+            .usp-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .usp-item {
+                border-right: none;
+                border-bottom: 1px solid rgba(10,10,10,0.1);
+            }
+
+            .booking-card {
+                padding: 30px 24px;
+            }
+
+            .booking-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .diensten-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .over-grid {
+                grid-template-columns: 1fr;
+                gap: 50px;
+            }
+
+            .stappen-grid {
+                grid-template-columns: 1fr;
+                gap: 50px;
+            }
+
+            .stappen-grid::before {
+                display: none;
+            }
+
+            .reviews-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 12px;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                gap: 8px;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .usp-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                font-size: 2.4rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+
+            .hero-buttons .btn {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .cta-buttons .btn {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ===== NAVBAR ===== -->
+    <header class="navbar" id="navbar">
+        <div class="container">
+            <a href="#" class="logo">Gondal<span>-Tax</span></a>
+            <nav class="nav-links">
+                <a href="#home">Home</a>
+                <a href="#diensten">Diensten</a>
+                <a href="#over-ons">Over Ons</a>
+                <a href="#contact">Contact</a>
+                <a href="#boeken" class="btn btn-primary nav-cta">Nu Boeken</a>
+            </nav>
+            <div class="hamburger" id="hamburger" aria-label="Menu openen" role="button" tabindex="0">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <nav>
+            <a href="#home" class="mobile-link">Home</a>
+            <a href="#diensten" class="mobile-link">Diensten</a>
+            <a href="#over-ons" class="mobile-link">Over Ons</a>
+            <a href="#contact" class="mobile-link">Contact</a>
+            <a href="#boeken" class="btn btn-primary mobile-link">Nu Boeken</a>
+        </nav>
+    </div>
+
+    <!-- ===== HERO ===== -->
+    <section class="hero" id="home">
+        <div class="hero-bg"></div>
+        <div class="hero-pattern"></div>
+        <div class="hero-glow"></div>
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-label">Gondal-Tax Taxiservice</div>
+                <h1>Uw Betrouwbare Rit, <em>Altijd Op Tijd.</em></h1>
+                <p class="hero-sub">Professioneel taxivervoer door heel Nederland. Van luchthaven transfers tot zakelijk vervoer — wij rijden waar u moet zijn.</p>
+                <div class="hero-buttons">
+                    <a href="#boeken" class="btn btn-primary">
+                        <i class="fas fa-calendar-check"></i> Direct Boeken
+                    </a>
+                    <a href="tel:+31612345678" class="btn btn-outline">
+                        <i class="fas fa-phone"></i> Bel Nu
+                    </a>
+                </div>
+            </div>
+            <div class="hero-stats">
+                <div class="hero-stat">
+                    <h3>10+</h3>
+                    <p>Jaar Ervaring</p>
+                </div>
+                <div class="hero-stat">
+                    <h3>5000+</h3>
+                    <p>Tevreden Klanten</p>
+                </div>
+                <div class="hero-stat">
+                    <h3>4.9★</h3>
+                    <p>Gemiddelde Score</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== USP BAR ===== -->
+    <section class="usp-bar">
+        <div class="usp-grid">
+            <div class="usp-item">
+                <i class="fas fa-clock"></i>
+                <span>24/7 Beschikbaar</span>
+            </div>
+            <div class="usp-item">
+                <i class="fas fa-tag"></i>
+                <span>Vaste Tarieven</span>
+            </div>
+            <div class="usp-item">
+                <i class="fas fa-user-tie"></i>
+                <span>Professionele Chauffeurs</span>
+            </div>
+            <div class="usp-item">
+                <i class="fas fa-plane-arrival"></i>
+                <span>Vliegveld Specialist</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== BOOKING FORM ===== -->
+    <section class="booking" id="boeken">
+        <div class="container">
+            <div class="booking-header fade-in">
+                <span class="section-label">Rit Plannen</span>
+                <h2 class="section-title">Boek Uw Rit</h2>
+                <p class="section-subtitle" style="margin: 0 auto;">Vul het formulier in en ontvang direct een prijsindicatie voor uw rit.</p>
+            </div>
+            <div class="booking-card fade-in">
+                <form id="bookingForm" onsubmit="return false;">
+                    <div class="booking-grid">
+                        <div class="form-group">
+                            <label for="pickup"><i class="fas fa-map-marker-alt"></i> Ophaaladres</label>
+                            <input type="text" id="pickup" placeholder="Bijv. Amsterdam Centraal" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="dropoff"><i class="fas fa-flag-checkered"></i> Bestemming</label>
+                            <input type="text" id="dropoff" placeholder="Bijv. Schiphol Airport" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="date"><i class="fas fa-calendar"></i> Datum</label>
+                            <input type="date" id="date" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="time"><i class="fas fa-clock"></i> Tijd</label>
+                            <input type="time" id="time" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="passengers"><i class="fas fa-users"></i> Aantal Personen</label>
+                            <select id="passengers">
+                                <option value="1">1 Persoon</option>
+                                <option value="2">2 Personen</option>
+                                <option value="3">3 Personen</option>
+                                <option value="4">4 Personen</option>
+                                <option value="5">5 Personen</option>
+                                <option value="6">6+ Personen</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="service"><i class="fas fa-car"></i> Type Dienst</label>
+                            <select id="service">
+                                <option value="standaard">Standaard</option>
+                                <option value="business">Business Class</option>
+                                <option value="vip">VIP</option>
+                                <option value="busje">Minibus (6+)</option>
+                            </select>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary booking-submit" id="calcBtn">
+                        <i class="fas fa-calculator"></i> Bereken Prijs
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- ===== DIENSTEN ===== -->
+    <section class="diensten" id="diensten">
+        <div class="container">
+            <div class="diensten-header fade-in">
+                <span class="section-label">Wat Wij Bieden</span>
+                <h2 class="section-title">Onze Diensten</h2>
+                <span class="yellow-line"></span>
+            </div>
+            <div class="diensten-grid">
+                <div class="dienst-card fade-in">
+                    <div class="dienst-icon">
+                        <i class="fas fa-plane"></i>
+                    </div>
+                    <h3>Luchthaven Vervoer</h3>
+                    <p>Betrouwbare transfers van en naar Schiphol en andere luchthavens. Inclusief vlucht monitoring en gratis wachttijd.</p>
+                    <a href="#boeken" class="dienst-link">Meer Info <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="dienst-card fade-in">
+                    <div class="dienst-icon">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <h3>Zakelijk Vervoer</h3>
+                    <p>Stijlvol en punctueel vervoer voor zakelijke afspraken, conferenties en bedrijfsevenementen.</p>
+                    <a href="#boeken" class="dienst-link">Meer Info <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="dienst-card fade-in">
+                    <div class="dienst-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3>Trouwvervoer</h3>
+                    <p>Maak van uw trouwdag een onvergetelijke ervaring met ons luxe trouwvervoer. Stijlvol en elegant.</p>
+                    <a href="#boeken" class="dienst-link">Meer Info <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="dienst-card fade-in">
+                    <div class="dienst-icon">
+                        <i class="fas fa-road"></i>
+                    </div>
+                    <h3>Lange Afstand</h3>
+                    <p>Comfortabel reizen over langere afstanden, zowel binnen Nederland als naar België en Duitsland.</p>
+                    <a href="#boeken" class="dienst-link">Meer Info <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- ===== OVER ONS ===== -->
+    <section class="over-ons" id="over-ons">
+        <div class="container">
+            <div class="over-grid">
+                <div class="over-content fade-in-left">
+                    <span class="section-label">Over Ons</span>
+                    <h2 class="section-title">Waarom Kiezen Voor Gondal-Tax?</h2>
+                    <span class="yellow-line" style="margin-bottom: 24px;"></span>
+                    <p class="over-text">
+                        Al meer dan een decennium zijn wij de vertrouwde keuze voor taxivervoer in de Randstad.
+                        Onze chauffeurs zijn gecertificeerd, ons wagenpark is modern, en onze service is
+                        compromisloos. Of het nu gaat om een vroege vlucht of een laat zakendiner —
+                        wij zijn er wanneer u ons nodig heeft.
+                    </p>
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <h3>10+</h3>
+                            <p>Jaar Ervaring</p>
+                        </div>
+                        <div class="stat-item">
+                            <h3>5000+</h3>
+                            <p>Ritten Per Jaar</p>
+                        </div>
+                        <div class="stat-item">
+                            <h3>4.9★</h3>
+                            <p>Klantbeoordeling</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="over-visual fade-in-right">
+                    <div class="over-accent-block">
+                        <div class="over-quote">
+                            <div class="quote-icon">&ldquo;</div>
+                            <blockquote>Kwaliteit is geen handeling, het is een gewoonte. Elke rit verdient dezelfde toewijding.</blockquote>
+                            <cite>&mdash; Gondal-Tax, sinds 2014</cite>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== HOE HET WERKT ===== -->
+    <section class="hoe-werkt">
+        <div class="container">
+            <div class="hoe-werkt-header fade-in">
+                <span class="section-label">Eenvoudig & Snel</span>
+                <h2 class="section-title">Hoe Het Werkt</h2>
+                <p class="section-subtitle">In drie simpele stappen zit u comfortabel in onze taxi.</p>
+            </div>
+            <div class="stappen-grid">
+                <div class="stap fade-in">
+                    <div class="stap-number">
+                        <span>01</span>
+                        <div class="stap-icon"><i class="fas fa-laptop"></i></div>
+                    </div>
+                    <h3>Boek Online</h3>
+                    <p>Vul het boekingsformulier in of bel ons direct. U ontvangt direct een bevestiging.</p>
+                </div>
+                <div class="stap fade-in">
+                    <div class="stap-number">
+                        <span>02</span>
+                        <div class="stap-icon"><i class="fas fa-car"></i></div>
+                    </div>
+                    <h3>Chauffeur Komt</h3>
+                    <p>Uw chauffeur staat op de afgesproken tijd klaar op de aangegeven locatie.</p>
+                </div>
+                <div class="stap fade-in">
+                    <div class="stap-number">
+                        <span>03</span>
+                        <div class="stap-icon"><i class="fas fa-check"></i></div>
+                    </div>
+                    <h3>Veilig Op Bestemming</h3>
+                    <p>Leun achterover en geniet van de rit. Wij brengen u veilig en comfortabel naar uw bestemming.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- ===== REVIEWS ===== -->
+    <section class="reviews">
+        <div class="container">
+            <div class="reviews-header fade-in">
+                <span class="section-label">Ervaringen</span>
+                <h2 class="section-title">Wat Onze Klanten Zeggen</h2>
+            </div>
+            <div class="reviews-grid">
+                <div class="review-card fade-in">
+                    <div class="review-stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="review-text">"Altijd op tijd, vriendelijke chauffeurs en nette auto's. Gondal-Tax is mijn vaste taxiservice voor ritten naar Schiphol. Absolute aanrader!"</p>
+                    <div class="review-author">
+                        <div class="review-avatar">MV</div>
+                        <div>
+                            <div class="review-name">Mohammed V.</div>
+                            <div class="review-route">Rotterdam → Schiphol</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="review-card fade-in">
+                    <div class="review-stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="review-text">"Professionele service voor onze bruiloft. De chauffeur was keurig gekleed en de auto was prachtig. Een perfecte ervaring op onze speciale dag."</p>
+                    <div class="review-author">
+                        <div class="review-avatar">SB</div>
+                        <div>
+                            <div class="review-name">Sarah B.</div>
+                            <div class="review-route">Trouwvervoer Den Haag</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="review-card fade-in">
+                    <div class="review-stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <p class="review-text">"Ik gebruik Gondal-Tax regelmatig voor zakelijke afspraken. Betrouwbaar, discreet en altijd een schone auto. Vaste tarieven, geen verrassingen."</p>
+                    <div class="review-author">
+                        <div class="review-avatar">JK</div>
+                        <div>
+                            <div class="review-name">Jan K.</div>
+                            <div class="review-route">Zakelijk Utrecht</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SERVICE GEBIED ===== -->
+    <section class="service-gebied">
+        <div class="container">
+            <div class="service-header fade-in">
+                <span class="section-label">Ons Werkgebied</span>
+                <h2 class="section-title">Service Gebied</h2>
+                <p class="section-subtitle">Wij bedienen de gehele Randstad en omstreken. Ritten naar andere steden op aanvraag.</p>
+            </div>
+            <div class="steden-grid fade-in">
+                <span class="stad-tag highlight">Rotterdam</span>
+                <span class="stad-tag highlight">Schiphol</span>
+                <span class="stad-tag">Amsterdam</span>
+                <span class="stad-tag">Den Haag</span>
+                <span class="stad-tag">Utrecht</span>
+                <span class="stad-tag">Dordrecht</span>
+                <span class="stad-tag">Delft</span>
+                <span class="stad-tag">Leiden</span>
+                <span class="stad-tag">Breda</span>
+                <span class="stad-tag">Eindhoven</span>
+                <span class="stad-tag">Gouda</span>
+                <span class="stad-tag">Zoetermeer</span>
+                <span class="stad-tag">Almere</span>
+                <span class="stad-tag">Arnhem</span>
+                <span class="stad-tag">Tilburg</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CTA BANNER ===== -->
+    <section class="cta-banner">
+        <div class="container">
+            <div class="cta-content fade-in">
+                <h2>Klaar Voor Uw Rit?</h2>
+                <p>Boek nu en ervaar het verschil. Professioneel vervoer tegen een eerlijke prijs.</p>
+                <div class="cta-buttons">
+                    <a href="#boeken" class="btn btn-outline-dark">
+                        <i class="fas fa-calendar-check"></i> Direct Boeken
+                    </a>
+                    <a href="tel:+31612345678" class="btn btn-outline-dark">
+                        <i class="fas fa-phone"></i> 06 - 1234 5678
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer" id="contact">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="#" class="logo">Gondal<span>-Tax</span></a>
+                    <p>Uw betrouwbare partner in taxivervoer. Al meer dan 10 jaar rijden wij door heel Nederland met comfort, stijl en punctualiteit.</p>
+                    <div class="footer-social">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h4>Navigatie</h4>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#diensten">Diensten</a></li>
+                        <li><a href="#over-ons">Over Ons</a></li>
+                        <li><a href="#boeken">Boeken</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Diensten</h4>
+                    <ul class="footer-links">
+                        <li><a href="#boeken">Luchthaven Vervoer</a></li>
+                        <li><a href="#boeken">Zakelijk Vervoer</a></li>
+                        <li><a href="#boeken">Trouwvervoer</a></li>
+                        <li><a href="#boeken">Lange Afstand</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Contact</h4>
+                    <ul class="footer-contact">
+                        <li>
+                            <i class="fas fa-phone"></i>
+                            <a href="tel:+31612345678">+31 6 1234 5678</a>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <a href="mailto:info@gondal-tax.nl">info@gondal-tax.nl</a>
+                        </li>
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Rotterdam, Nederland</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-building"></i>
+                            <span>KvK: 12345678</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span>&copy; 2024 Gondal-Tax. Alle rechten voorbehouden.</span>
+                <span><a href="#">Privacy Policy</a> &nbsp;|&nbsp; <a href="#">Algemene Voorwaarden</a></span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ===== JAVASCRIPT ===== -->
+    <script>
+        // === Navbar scroll effect ===
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            navbar.classList.toggle('scrolled', window.scrollY > 50);
+        });
+
+        // === Hamburger menu ===
+        const hamburger = document.getElementById('hamburger');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            mobileMenu.classList.toggle('active');
+            document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
+        });
+
+        // Close mobile menu on link click
+        document.querySelectorAll('.mobile-link').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                mobileMenu.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+        });
+
+        // === Fade-in on scroll (Intersection Observer) ===
+        const observerOptions = {
+            threshold: 0.15,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    // Stagger animation for sibling elements
+                    const siblings = entry.target.parentElement.querySelectorAll('.fade-in, .fade-in-left, .fade-in-right');
+                    const idx = Array.from(siblings).indexOf(entry.target);
+                    setTimeout(() => {
+                        entry.target.classList.add('visible');
+                    }, idx * 100);
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in, .fade-in-left, .fade-in-right').forEach(el => {
+            observer.observe(el);
+        });
+
+        // === Set min date on date picker ===
+        const dateInput = document.getElementById('date');
+        const today = new Date().toISOString().split('T')[0];
+        dateInput.setAttribute('min', today);
+        dateInput.value = today;
+
+        // === Booking form handler ===
+        document.getElementById('calcBtn').addEventListener('click', () => {
+            const pickup = document.getElementById('pickup').value.trim();
+            const dropoff = document.getElementById('dropoff').value.trim();
+            const date = document.getElementById('date').value;
+            const time = document.getElementById('time').value;
+
+            if (!pickup || !dropoff || !date || !time) {
+                alert('Vul alstublieft alle velden in om een prijs te berekenen.');
+                return;
+            }
+
+            // Simulate price calculation
+            const passengers = document.getElementById('passengers').value;
+            const service = document.getElementById('service').value;
+            let basePrice = 25 + Math.floor(Math.random() * 60);
+
+            if (service === 'business') basePrice = Math.round(basePrice * 1.3);
+            if (service === 'vip') basePrice = Math.round(basePrice * 1.6);
+            if (service === 'busje') basePrice = Math.round(basePrice * 1.4);
+            if (parseInt(passengers) > 4) basePrice = Math.round(basePrice * 1.2);
+
+            alert(
+                `Geschatte prijs: €${basePrice},-\n\n` +
+                `Van: ${pickup}\n` +
+                `Naar: ${dropoff}\n` +
+                `Datum: ${date}\n` +
+                `Tijd: ${time}\n\n` +
+                `Neem contact op voor een exacte offerte:\n` +
+                `📞 +31 6 1234 5678\n` +
+                `📧 info@gondal-tax.nl`
+            );
+        });
+
+        // === Smooth scroll for anchor links ===
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    e.preventDefault();
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
